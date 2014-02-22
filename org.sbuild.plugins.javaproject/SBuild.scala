@@ -35,9 +35,9 @@ class SBuild(implicit _project: Project) {
     pluginClass = s"${namespace}.JavaProject",
     pluginVersion = version,
     deps = Seq(
-      s"${tmpBaseDir}/clean/org.sbuild.plugins.clean/target/org.sbuild.plugins.clean-0.0.9000.jar",
       s"${tmpBaseDir}/javac/org.sbuild.plugins.javac/target/org.sbuild.plugins.javac-0.0.9000.jar",
-      s"${tmpBaseDir}/jar/org.sbuild.plugins.jar/target/org.sbuild.plugins.jar-0.0.9000.jar"
+      s"${tmpBaseDir}/jar/org.sbuild.plugins.jar/target/org.sbuild.plugins.jar-0.0.9000.jar",
+      s"${tmpBaseDir}/clean/org.sbuild.plugins.clean/target/org.sbuild.plugins.clean-0.0.9000.jar"
     ),
     manifest = Map("SBuild-Version" -> "0.7.1.9000"),
     // reexport dependent plugins
