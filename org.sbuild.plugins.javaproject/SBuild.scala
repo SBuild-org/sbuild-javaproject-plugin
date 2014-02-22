@@ -29,8 +29,8 @@ class SBuild(implicit _project: Project) {
       override val version = "0.7.0"
       override val sbuildClasspath =
         (basePath / "de.tototec.sbuild-0.7.1.9000.jar") ~
-        (basePath / "de.tototec.sbuild.addons-0.7.1.9000.jar") ~
-        (basePath / "de.tototec.sbuild.ant-0.7.1.9000.jar")
+          (basePath / "de.tototec.sbuild.addons-0.7.1.9000.jar") ~
+          (basePath / "de.tototec.sbuild.ant-0.7.1.9000.jar")
     },
     pluginClass = s"${namespace}.JavaProject",
     pluginVersion = version,
@@ -43,7 +43,7 @@ class SBuild(implicit _project: Project) {
     // reexport dependent plugins
     exportedPackages = Some(Seq(
       "org.sbuild.plugins.javaproject",
-      "org.sbuild.plugins.clean",
+      //      "org.sbuild.plugins.clean",
       "org.sbuild.plugins.javac",
       "org.sbuild.plugins.jar"
     ))
