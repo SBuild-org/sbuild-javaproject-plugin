@@ -1,15 +1,15 @@
 package org.sbuild.plugins.javaproject
 
 object ProjectInfo {
-  def apply(name: String): ProjectInfo = ProjectInfo(Some(name), None)
-  def apply(name: String, version: String): ProjectInfo = ProjectInfo(Some(name), Some(version))
+  def apply(name: String): ProjectInfo = ProjectInfo(name, None)
+  def apply(name: String, version: String): ProjectInfo = ProjectInfo(name, Some(version))
 
   implicit def fromString(string: String): ProjectInfo = {
     string.split(":", 2) match {
-      case Array(name) => apply(string)
-      case Array(name, version) => apply(string, version)
+      case Array(name) => ProjectInfo(name, None)
+      case Array(name, version) => ProjectInfo(name, Some(version))
     }
   }
 }
 
-case class ProjectInfo(name: Option[String], version: Option[String])
+case class ProjectInfo(name: String, version: Option[String])

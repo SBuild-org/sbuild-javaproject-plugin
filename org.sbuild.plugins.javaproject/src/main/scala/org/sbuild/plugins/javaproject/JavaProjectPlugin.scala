@@ -10,7 +10,7 @@ class JavaProjectPlugin(implicit project: Project) extends Plugin[JavaProject] w
     val resources = Seq(Path("src/main/resources"))
     val testResources = Seq(Path("src/test/resources"))
     JavaProject(
-      projectInfo = ProjectInfo("main"),
+      projectInfo = "main",
       compileDeps = TargetRefs(),
       testDeps = TargetRefs(),
       sourceDirs = sources,
@@ -83,9 +83,12 @@ class JavaProjectPlugin(implicit project: Project) extends Plugin[JavaProject] w
         dependsOn = javaProject.preTestCompileAction
       )).get
 
-      val testJar = Plugin[Jar].configure(_.copy(
+      val testJar = Plugin[Jar]("test").configure(_.copy(
         jarFile = targetDir / s"${jarNameBase}-tests.jar",
         deps = testCompile.compileTargetName,
+        fileSets =
+          Seq(JarFileSet.Dir(testCompileTargetDir)) ++
+            javaProject.testResourceDirs.map(dir => JarFileSet.Dir(dir)),
         phonyTarget = Some("jar-tests")
       )).get
 
