@@ -1,0 +1,71 @@
+= SBuild Java Project Plugin
+:sbuildversion: 0.7.1.9000
+:pluginversion: 0.0.9000
+:toc:
+:toc-placement: preamble
+:toclevels: 1
+
+This SBuild plugin provides typical targets for Java projects.
+
+== Download
+
+SBuild Java Project Plugin can be downloaded from http://repo1.maven.org/maven2/org/sbuild/org.sbuild.plugins.javaproject[Maven Central].
+
+
+== Building from Source
+
+You need a recent version of SBuild.
+
+----
+git clone https://github.com/SBuild-org/sbuild-javaproject-plugin.git
+cd sbuild-sbuild-plugin/org.sbuild.plugins.javaproject
+sbuild jar
+----
+
+You will find the built jar in the directory `org.sbuild.plugins.javaproject/target`.
+
+== Requirements
+
+This plugin requires at least SBuild {sbuildversion}.
+
+== Configuration
+
+All configurable properties are documented via ScalaDoc. See file link:org.sbuild.plugins.javaproject/src/main/scala/org/sbuild/plugins/javaproject/JavaProject.scala[JavaProject.scala].
+
+== Targets
+
+In it's default configuration, this plugin will provide the following targets:
+
+* *clean*
+* *clean-compile*
+* *compile*
+* *jar*
+* *${jarFile}*
+
+== Examples
+
+=== Minimal
+
+Minimal example, using the Java Compiler with it's default settings.
+
+[source,scala]
+----
+import de.tototec.sbuild._
+
+class SBuild(implicit _project: Project) {
+
+  import org.sbuild.plugins.javaproject._
+  Plugin[JavaProject]
+
+}
+----
+
+----
+bash $ sbuild -l
+----
+
+== Changelog
+
+=== SBuild Java Project Plugin 0.1.0 - _not released yet_
+
+* Initial release

@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+workspaceProjectRegexAlias//.*/de\\.tototec\\.sbuild-.*\\.jar=de.tototec.sbuild
+workspaceProjectRegexAlias//.*/org.sbuild.plugins.jar-.*\\.jar=org.sbuild.plugins.jar
+workspaceProjectRegexAlias//.*/org.sbuild.plugins.javac-.*\\.jar=org.sbuild.plugins.javac
